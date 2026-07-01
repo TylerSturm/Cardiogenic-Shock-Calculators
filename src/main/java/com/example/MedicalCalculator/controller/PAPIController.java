@@ -1,9 +1,9 @@
 package com.example.MedicalCalculator.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.ui.Model;
 
 @Controller
 public class PAPIController
@@ -13,7 +13,7 @@ public class PAPIController
                              @RequestParam double PAd, 
                              @RequestParam double CUP,
                              Model model) {
-        double result = (PAs + PAd) / CUP; 
+        double result = (PAs - PAd) / CUP; 
         model.addAttribute("result", result);
         return "fragments/result :: resultFragment";
                              }
