@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #16181d;
+    --panel: #1b1e24;
+    --plate: #101215;
+    --line: #33373f;
+    --line-strong: #4a5058;
+    --text: #e8e6df;
+    --muted: #83898f;
+    --amber: #ffb200;
+    --amber-dim: #8a6414;
+    --red: #d94f3d;
+    --white-light: #eceae2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.page-shell {
+    width: min(100%, 480px);
+}
+
+/* signature element: a 4-light PAPI bar */
+.papi-bar {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 0;
+}
+
+.papi-bar span {
+    flex: 1;
+    height: 6px;
+    background: var(--red);
+}
+
+.papi-bar span:nth-child(3),
+.papi-bar span:nth-child(4) {
+    background: var(--white-light);
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    padding: 30px 28px;
+}
+
+.brand {
+    margin: 0 0 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    margin: 0 0 26px;
+    color: var(--muted);
+    line-height: 1.55;
+    font-size: 0.88rem;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.home-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--amber);
+    background: var(--plate);
+    transition: border-color 0.15s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--amber-dim);
+}
+
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 11px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+button:hover,
+.btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+}
+
+#result {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 2px;
+    background: var(--plate);
+    border: 1px solid var(--line);
+    color: var(--amber);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 16px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .brand {
+        font-size: 1.1rem;
+    }
+}

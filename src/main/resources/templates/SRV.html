@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVR Calculator</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="page-shell">
+    <div class="card">
+        <p class="brand">SVR Calculator</p>
+        <p class="subtitle">Complete the fields below to calculate systemic vascular resistance.</p>
+
+        <div class="field">
+            <label for="MAP">MAP</label>
+            <input type="text" id="MAP" name="MAP" required />
+        </div>
+
+        <div class="field">
+            <label for="CVP">CVP</label>
+            <input type="text" id="CVP" name="CVP" required />
+        </div>
+
+        <div class="field">
+            <label for="CO">CO</label>
+            <input type="text" id="CO" name="CO" required />
+        </div>
+
+        <button hx-post="/calculateSVR"
+                hx-include="#MAP, #CVP, #CO"
+                hx-target="#result"
+                hx-swap="outerHTML">
+            Calculate
+        </button>
+
+        <div id="result">0</div>
+    </div>
+</div>
+</body>
+</html>

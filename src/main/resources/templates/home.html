@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardiogenic Shock Calculators</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="page-shell">
+    <div class="card">
+        <p class="brand">Cardiogenic Shock Calculators</p>
+        <p class="subtitle">Choose a calculator to begin with a clean, clinical workflow.</p>
+
+        <div class="home-links">
+            <a th:href="@{/PAPI}" class="btn btn-primary">PAPI Calculator</a>
+            <a th:href="@{/FICK}" class="btn btn-primary">FICK Calculator</a>
+            <a th:href="@{/CPO}" class="btn btn-primary">CPO Calculator</a>
+            <a th:href="@{/SVR}" class="btn btn-primary">SVR Calculator</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

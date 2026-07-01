@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAPI Calculator</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="page-shell">
+    <div class="card">
+        <p class="brand">PAPI Calculator</p>
+        <p class="subtitle">Enter the measurements to calculate the pulmonary artery pressure index.</p>
+
+        <div class="field">
+            <label for="PAs">PAs</label>
+            <input type="text" id="PAs" name="PAs" required />
+        </div>
+
+        <div class="field">
+            <label for="PAd">PAd</label>
+            <input type="text" id="PAd" name="PAd" required />
+        </div>
+
+        <div class="field">
+            <label for="CUP">CUP</label>
+            <input type="text" id="CUP" name="CUP" required />
+        </div>
+
+        <button hx-post="/calculatePAPI"
+                hx-include="#PAs, #PAd, #CUP"
+                hx-target="#result"
+                hx-swap="outerHTML">
+            Calculate
+        </button>
+
+        <div id="result">0</div>
+    </div>
+</div>
+</body>
+</html>
