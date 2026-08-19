@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCAI Stage Calculator</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="page-shell">
+    <div class="card">
+        <p class="brand">SCAI Stage Calculator</p>
+        <p class="subtitle"></p>
+
+        <div class="field">
+            <label for="SBP">Systolic Blood Pressure (mm Hg)</label>
+            <input type="number" step="any" id="SBP" name="SBP" required />
+        </div>
+
+        <div class="field">
+            <label for="MAP">Mean Arterial Pressure (mm Hg)</label>
+            <input type="number" step="any" id="MAP" name="MAP" required />
+        </div>
+
+        <div class="field">
+            <label for="SL">Serum Lactate (mmol/L)</label>
+            <input type="number" step="any" id="SL" name="SL" required />
+        </div>
+
+        <div class="field">
+            <label for="SAA">Serum Alanine Aminotransferase (ALT) (U/L)</label>
+            <input type="number" step="any" id="SAA" name="SAA" required />
+        </div>
+
+        <div class="field">
+            <label for="PH">Blood PH</label>
+            <input type="number" step="any" id="PH" name="PH" required />
+        </div>
+
+        <div class="field">
+            <label for="vaso">Number of vasopressors/inotropes</label>
+            <input type="number" step="any" id="vaso" name="vaso" required />
+        </div>
+
+        <div class="field">
+            <label for="MCD">Number of mechanical circulatory support devices</label>
+            <input type="number" step="any" id="MCD" name="MCD" required />
+        </div>
+
+        <div class="field">
+            <label for="Hypo">Persistent hypotension or hypoperfusion after therapy</label>
+            <select id="Hypo" name="Hypo" required>
+                <option value="" disabled selected>Select...</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+
+        <button hx-post="/calculateSCAI"
+                hx-include="#SBP, #MAP, #SL, #SAA, #PH, #vaso, #MCD, #Hypo"
+                hx-target="#SCAIResult"
+                hx-swap="outerHTML">
+            Calculate
+        </button>
+
+        <div id="SCAIResult">
+            <span> </span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

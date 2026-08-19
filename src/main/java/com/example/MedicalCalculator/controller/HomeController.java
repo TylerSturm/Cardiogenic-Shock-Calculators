@@ -49,4 +49,10 @@ public class HomeController
     {
         return "SVR";
     }
+
+    @GetMapping("/SCAI")
+    public String scai()
+    {
+        return "SCAI";
+    }
 }
