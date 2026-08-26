@@ -19,8 +19,6 @@ public class SCAIController
                              @RequestParam Boolean Hypo,
                              Model model) {
 
-        // --- Named intermediate conditions (mirrors the CSAI/CSWG chart rows) ---
-
         // "Hemodynamically unstable" band: SBP 60-90 OR MAP 50-65
         boolean hemoUnstable = (SBP >= 60 && SBP <= 90) || (MAP >= 50 && MAP <= 65);
 
