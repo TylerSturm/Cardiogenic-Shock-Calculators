@@ -20,38 +20,22 @@ public class FICKController
 
         double BSA = Math.sqrt((Height * Weight) / 3600);
 
-        double CaO2 = Hgb * 1.31 * SaO2;
+        double CaO2 = Hgb * 1.34 * SaO2;
 
-        double CvO2 = Hgb * 1.31 * SvO2;
-
-        double SV;
-
-        double CI;
-
-        double CO;
+        double CvO2 = Hgb * 1.34 * SvO2;
 
         double VO2;
-
         if(Age < 70)
         {
             VO2 = 125 * BSA;
-
-            CO = 10 * (VO2 / (CaO2 - CvO2));
-
-            SV = 1000 * (CO / HeartRate);
-
-            CI = CO / BSA;
         }
         else
         {
             VO2 = 110 * BSA;
-
-            CO = 10 * (VO2 / (CaO2 - CvO2));
-
-            SV = 1000 * (CO / HeartRate);
-
-            CI = CO / BSA;
         }
+        double CO = 10 * (VO2 / (CaO2 - CvO2));
+        double SV = 1000 * (CO / HeartRate);
+        double CI = CO / BSA;
         model.addAttribute("result", CO);
         model.addAttribute("result2", CI);
         model.addAttribute("result3", SV);
