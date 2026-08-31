@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FICK Calculator</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
@@ -13,33 +14,51 @@
         <p class="brand">FICK Calculator</p>
 
         <div class="field">
-            <label for="PAs"></label>
-            <input type="text" id="PAs" name="PAs" required />
+            <label for="Weight">Weight (kg)</label>
+            <input type="number" step="any" id="Weight" name="Weight" required />
         </div>
 
         <div class="field">
-            <label for="PAs2"></label>
-            <input type="text" id="PAs2" name="PAs2" required />
+            <label for="Height">Height (cm)</label>
+            <input type="number" step="any" id="Height" name="Height" required />
         </div>
 
         <div class="field">
-            <label for="PAs3"></label>
-            <input type="text" id="PAs3" name="PAs3" required />
+            <label for="SaO2">SaO2 (%)</label>
+            <input type="number" step="any" id="SaO2" name="SaO2" required />
         </div>
 
         <div class="field">
-            <label for="PAs4"></label>
-            <input type="text" id="PAs4" name="PAs4" required />
+            <label for="SvO2">SvO2 (%)</label>
+            <input type="number" step="any" id="SvO2" name="SvO2" required />
         </div>
 
         <div class="field">
-            <label for="PAs5"></label>
-            <input type="text" id="PAs5" name="PAs5" required />
+            <label for="Hgb">Hemoglobin (g/dL)</label>
+            <input type="number" step="any" id="Hgb" name="Hgb" required />
         </div>
 
         <div class="field">
-            <label for="PAs6"></label>
-            <input type="text" id="PAs6" name="PAs6" required />
+            <label for="HeartRate">Heart Rate (bpm)</label>
+            <input type="number" step="any" id="HeartRate" name="HeartRate" required />
+        </div>
+
+        <div class="field">
+            <label for="Age">Age (years)</label>
+            <input type="number" step="any" id="Age" name="Age" required />
+        </div>
+
+        <button hx-post="/calculateFICK"
+                hx-include="#Weight, #Height, #SaO2, #SvO2, #Hgb, #HeartRate, #Age"
+                hx-target="#fick-results"
+                hx-swap="outerHTML">
+            Calculate
+        </button>
+
+        <div id="fick-results">
+            <div id="result">Cardiac Output:</div>
+            <div id="result2">Cardiac Index:</div>
+            <div id="result3">Stroke Volume:</div>
         </div>
     </div>
 </div>

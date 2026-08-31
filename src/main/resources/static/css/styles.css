@@ -161,6 +161,36 @@ button:hover,
     letter-spacing: 0.01em;
 }
 
+#fick-results {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 6px;
+    background: var(--plate);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#fick-results div {
+    padding: 8px 0;
+}
+
+#fick-results #result {
+    margin-top: 0;
+    padding: 8px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: inherit;
+}
+
+#fick-results div + div {
+    border-top: 1px solid var(--line);
+}
+
 #SCAIResult {
     margin-top: 20px;
     padding: 14px;
