@@ -1,11 +1,11 @@
 <div xmlns:th="http://www.thymeleaf.org" th:fragment="resultFragment" id="fick-results">
     <div id="result">
-        Cardiac Output: <span th:text="${result}">0</span>
+        Cardiac Output: <span th:text="${#numbers.formatDecimal(result, 1, 1)}">0.00</span>
     </div>
     <div id="result2">
-        Cardiac Index: <span th:text="${result2}">0</span>
+        Cardiac Index: <span th:text="${#numbers.formatDecimal(result2, 1, 1)}">0.00</span>
     </div>
     <div id="result3">
-        Stroke Volume: <span th:text="${result3}">0</span>
+        Stroke Volume: <span th:text="${#numbers.formatDecimal(result3, 1, 1)}">0.00</span>
     </div>
 </div>
